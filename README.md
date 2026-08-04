@@ -85,22 +85,27 @@ print("\nYtrain:\n" ,Ytrain, "\nYtest:\n", Ytest)
 
 ## OUTPUT:
 Dataset:
+
 ![alt text](img1.png)
 
 
 Missing values:
+
 ![alt text](img2.png)
 
 
 Duplicates:
+
 ![alt text](img3.png)
 
 
 Standardized data:
+
 ![alt text](img4.png)
 
 
 Splitting:
+
 ![alt text](img5.png)
 
 ## RESULT:
