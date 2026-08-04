@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME: KANIMOZHI K N</H3>
+<H3>ENTER YOUR REGISTER NO. 212225230126</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE 04.08.2026</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -29,20 +29,79 @@ Another aspect is that the data set should be formatted in such a way that more 
 
 
 ## ALGORITHM:
-STEP 1:Importing the libraries<BR>
-STEP 2:Importing the dataset<BR>
-STEP 3:Taking care of missing data<BR>
-STEP 4:Encoding categorical data<BR>
-STEP 5:Normalizing the data<BR>
-STEP 6:Splitting the data into test and train<BR>
+STEP 1: Importing the Libraries: Import the required Python libraries needed for data analysis and machine learning.<BR>
+
+STEP 2: Importing the Dataset: Load the dataset into the program for processing and analysis.<BR>
+
+STEP 3: Taking Care of Missing Data: Handle missing values by removing or replacing them with suitable values.<BR>
+
+STEP 4: Encoding Categorical Data: Convert categorical (text) data into numerical format for machine learning models.<BR>
+
+STEP 5: Normalizing the Data: Scale the features to a common range to improve model performance.<BR>
+
+STEP 6: Splitting the Data into Training and Testing Sets: Divide the dataset into training and testing sets to train and evaluate the model.<BR>
+
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+# Importing Libraries
+import io
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+df=pd.read_csv("Churn_Modelling.csv",index_col="RowNumber")         # Read the dataset from drive
+df.head()
+
+ # Finding Missing Values
+df.isnull().sum()
+
+ # Check For Duplicates
+print(df.duplicated().sum())
+
+# Remove Unnecessary Columns
+df=df.drop(['Surname', 'Geography','Gender'], axis=1) 
+# Normalize the dataset
+scaler=StandardScaler()                                
+df=pd.DataFrame(scaler.fit_transform(df))
+df.head()
+
+# Split the dataset into input and output
+X,Y=df.iloc[:,:-1].values ,df.iloc[:,-1].values  
+
+ # Splitting the data for training & Testing
+print('Input:\n',X,'\nOutput:\n',Y) 
+Xtrain,Xtest,Ytrain,Ytest = train_test_split(X, Y, test_size=0.2)  
+
+# X Train and Test
+print("Xtrain:\n" ,Xtrain, "\nXtest:\n", Xtest)    
+
+# Y Train and Test
+print("\nYtrain:\n" ,Ytrain, "\nYtest:\n", Ytest)                   
+
+
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+Dataset:
+![alt text](img1.png)
 
+
+Missing values:
+![alt text](img2.png)
+
+
+Duplicates:
+![alt text](img3.png)
+
+
+Standardized data:
+![alt text](img4.png)
+
+
+Splitting:
+![alt text](img5.png)
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
